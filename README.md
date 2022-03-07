@@ -12,6 +12,6 @@
 ## Задание 2
 Алгоритм - `task2/main.py`
 
-Токены - `tokens/tokens.txt`
+Токены - `run (12-02-2022 22:24)/tokens/tokens.txt`
 
-Леммы - `lemmas/lemmas.txt`
+Леммы - `run (12-02-2022 22:24)/lemmas/lemmas.txt`
