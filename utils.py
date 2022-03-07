@@ -1,4 +1,7 @@
+import pymorphy2
+
 INDEX_ENTRY_SEPARATOR = ': '
+INDEX_FILE_NAME = 'index.txt'
 
 
 def write_index(run_path: str, index: dict):
@@ -8,3 +11,20 @@ def write_index(run_path: str, index: dict):
             file.write(entry)
             if i != len(index) - 1:
                 file.write('\n')
+
+
+def read_text(dir_path: str, file_name: str) -> str:
+    file_path = '{}/{}'.format(dir_path, file_name)
+    print('Read text from file {}...'.format(file_path))
+    return open(file_path, 'r').read()
+
+
+morph = pymorphy2.MorphAnalyzer()
+
+
+def lemmatize(text: str) -> str:
+    return morph.parse(text)[0].normal_form
+
+
+def pos(word):
+    return morph.parse(word)[0].tag.POS
