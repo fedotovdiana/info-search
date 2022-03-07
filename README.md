@@ -15,3 +15,13 @@
 Токены - `run (12-02-2022 22:24)/tokens/tokens.txt`
 
 Леммы - `run (12-02-2022 22:24)/lemmas/lemmas.txt`
+
+
+## Задание 3
+Создание инвертированного индекса - `task3/main.py`
+
+Инвертированный индекс - `run (12-02-2022 22:24)/inverted_index.txt`
+
+Булевый поиск - `task3/boolean_search.py`
+
+Демо булевого поиска -  `task3/demo/boolean_search.png`
