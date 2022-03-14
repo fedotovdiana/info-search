@@ -80,3 +80,24 @@ def read_inverted_index(run_path: str) -> dict:
             entry = line.split(INDEX_ENTRY_SEPARATOR)
             inverted_index[entry[0]] = ast.literal_eval(entry[1])
     return inverted_index
+
+
+def write_units(dir_path: str, file_name: str, words: list):
+    if not os.path.isdir(dir_path):
+        os.mkdir(dir_path)
+    units_file_path = '{}/{}'.format(dir_path, file_name)
+    print('Write to file {}...'.format(units_file_path))
+    with open(units_file_path, 'w') as output:
+        output.write(' '.join(words))
+
+
+def write_tf_idf(dir_path: str,  file_id: int, tf_idf_list: list):
+    if not os.path.isdir(dir_path):
+        os.mkdir(dir_path)
+    file_path = '{}/{}.txt'.format(dir_path, file_id)
+    print('Save to file {}...'.format(file_path))
+    with open(file_path, 'w') as file:
+        for tf_idf in tf_idf_list:
+            file.write(tf_idf)
+            if tf_idf != len(tf_idf_list) - 1:
+                file.write('\n')

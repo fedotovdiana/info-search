@@ -25,3 +25,10 @@
 Булевый поиск - `task3/boolean_search.py`
 
 Демо булевого поиска -  `task3/demo/boolean_search.png`
+
+## Задание 4
+Рассчет idf, tf-idf - `task4/main.py`
+
+tf-idf для токенов- `run (12-02-2022 22:24)/tokens/tf-idf/`
+
+tf-idf для лемм - `run (12-02-2022 22:24)/lemmas/tf-idf/`
