@@ -2,6 +2,8 @@ import pymorphy2
 import os
 import ast
 
+from pandas import DataFrame, read_csv
+
 INDEX_ENTRY_SEPARATOR = ': '
 INDEX_FILE_NAME = 'index.txt'
 MAX_INDEX = 99
@@ -91,7 +93,7 @@ def write_units(dir_path: str, file_name: str, words: list):
         output.write(' '.join(words))
 
 
-def write_tf_idf(dir_path: str,  file_id: int, tf_idf_list: list):
+def write_tf_idf(dir_path: str, file_id: int, tf_idf_list: list):
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
     file_path = '{}/{}.txt'.format(dir_path, file_id)
@@ -101,3 +103,18 @@ def write_tf_idf(dir_path: str,  file_id: int, tf_idf_list: list):
             file.write(tf_idf)
             if tf_idf != len(tf_idf_list) - 1:
                 file.write('\n')
+
+
+def save_df_as_csv(csv_file_path: str, df: DataFrame):
+    df.to_csv(csv_file_path)
+    print('Saved DataFrame to csv file {}'.format(csv_file_path))
+
+
+def read_idf(run_path: str) -> DataFrame:
+    idf_path = '{}/idf.csv'.format(run_path)
+    return read_csv(idf_path, index_col=0)
+
+
+def read_tf_idf(run_path: str) -> DataFrame:
+    tf_idf_path = '{}/tf-idf.csv'.format(run_path)
+    return read_csv(tf_idf_path, index_col=0)
